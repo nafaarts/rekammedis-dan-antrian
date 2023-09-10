@@ -3,7 +3,6 @@
 @section('title', 'Bukti Pendaftaran')
 
 @section('content')
-
     @if ($bukti)
         <div class="card ">
             <div class="text-center py-4">
@@ -12,49 +11,60 @@
             <hr>
             <div class="card-body p-3 p-md-5">
                 <div class="d-flex flex-column flex-md-row gap-4">
-                    <div>
+                    <div class="m-auto m-md-0">
                         {{ $qrcode }}
                     </div>
-                    <div class="table-responsive">
+                    <div class="d-flex flex-column flex-md-row align-items-start gap-0 gap-md-5 p-md-0 p-3 table-responsive">
                         <table>
                             <tr>
-                                <th>Tanggal Kunjungan</th>
-                                <td class="px-4">:</td>
-                                <td>{{ $bukti->tanggal_kunjungan }}</td>
+                                <th scope="row">Tanggal Kunjungan</th>
                             </tr>
                             <tr>
-                                <th>Nama</th>
-                                <td class="px-4">:</td>
-                                <td>{{ $bukti->pasien->user->nama }}</td>
+                                <td class="pb-2">{{ $bukti->tanggal_kunjungan }}</td>
                             </tr>
                             <tr>
-                                <th>Kode Kunjungan</th>
-                                <td class="px-4">:</td>
-                                <td>{{ $bukti->kode_kunjungan }}</td>
+                                <th scope="row">Nama</th>
                             </tr>
                             <tr>
-                                <th>Poli Tujuan</th>
-                                <td class="px-4">:</td>
-                                <td>{{ $bukti->poli->nama }}</td>
+                                <td class="pb-2">{{ $bukti->pasien->user->nama }}</td>
                             </tr>
                             <tr>
-                                <th>Status Kunjungan</th>
-                                <td class="px-4">:</td>
-                                <td>{{ $bukti->status_kunjungan ? 'Sudah dikunjungi' : 'Belum dikunjungi' }}</td>
+                                <th scope="row">Kode Kunjungan</th>
                             </tr>
                             <tr>
-                                <th>Asuransi</th>
-                                <td class="px-4">:</td>
-                                <td>{{ $bukti->asuransi }}</td>
+                                <td class="pb-2">{{ $bukti->kode_kunjungan }}</td>
                             </tr>
                             <tr>
-                                <th>Tanggal dibuat</th>
-                                <td class="px-4">:</td>
-                                <td>{{ $bukti->created_at->translatedFormat('d F Y H:i') }}</td>
+                                <th scope="row">Poli Tujuan</th>
+                            </tr>
+                            <tr>
+                                <td class="pb-2">{{ $bukti->poli->nama }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Status Kunjungan</th>
+                            </tr>
+                            <tr>
+                                <td class="pb-2">{{ $bukti->status_kunjungan ? 'Sudah dikunjungi' : 'Belum dikunjungi' }}
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <th scope="row">Asuransi</th>
+                            </tr>
+                            <tr>
+                                <td class="pb-2">{{ $bukti->asuransi }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Tanggal dibuat</th>
+                            </tr>
+                            <tr>
+                                <td class="pb-2">{{ $bukti->created_at->translatedFormat('d F Y H:i') }}</td>
                             </tr>
                         </table>
                     </div>
                 </div>
+                <hr>
                 <div class="d-flex align-items-center justify-content-start mt-5">
                     <a href="{{ route('beranda') }}" class="btn btn-secondary me-2">
                         Kembali

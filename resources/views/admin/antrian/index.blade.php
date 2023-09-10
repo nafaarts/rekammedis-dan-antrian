@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
-@section('title', 'Antrian')
+@section('title', 'Antrian Poli ' . auth()->user()->adminPoli->poli->nama)
 
 @section('breadcrumb')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-            <li class="breadcrumb-item active">Antrian</li>
+            <li class="breadcrumb-item active">Antrian {{ auth()->user()->adminPoli->poli->nama }}</li>
         </ol>
     </nav>
 @endsection
@@ -27,8 +27,8 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">No Antrian</th>
+                            <th scope="col">Nama Pasien</th>
                             <th scope="col">Nomor Pendaftaran</th>
-                            <th scope="col">Poli</th>
                             <th scope="col">Status Antrian</th>
                             <th scope="col">Status Kunjungan</th>
                             <th scope="col">Aksi</th>
@@ -39,12 +39,12 @@
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $item->nomor_antrian }}</td>
+                                <td>{{ $item->kunjungan->pasien->user->nama }}</td>
                                 <td><a
                                         href="{{ route('kunjungan.detail', $item->kunjungan) }}">{{ $item->kunjungan->kode_kunjungan }}</a>
                                 </td>
-                                <td>{{ $item->poli->nama }}</td>
                                 <td>{{ $item->status_antrian ? 'sudah dipanggil' : 'belum dipanggil' }}</td>
-                                <td>{{ $item->kunjungan->status_kunjungan ? 'sudah' : 'belum' }}</td>
+                                <td>{{ $item->kunjungan->status_kunjungan ? 'sudah kunjungan' : 'belum kunjungan' }}</td>
                                 <td>
                                     <div class="d-flex" style="gap: 5px">
                                         <a href="{{ route('antrian.update', $item) }}" @class([

@@ -125,7 +125,7 @@ class PendaftaranPasienController extends Controller
     {
         $pasien = Pasien::where('user_id', auth()->id())->first();
         $bukti = Kunjungan::where('pasien_id', $pasien->id)->latest()->first();
-        $qrcode = $bukti ? QrCode::size(180)->generate($bukti?->kode_kunjungan) : null;
+        $qrcode = $bukti ? QrCode::size(300)->generate($bukti?->kode_kunjungan) : null;
 
         return view('pendaftaran.bukti', compact('bukti', 'qrcode'));
     }

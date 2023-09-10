@@ -11,11 +11,14 @@ class AntrianController extends Controller
     {
         $adminPoli = auth()->user()->adminPoli;
 
-        $antrian = Antrian::orderBy('status_antrian', 'ASC')->orderBy('nomor_antrian', 'ASC');
-        if ($adminPoli) {
-            $antrian = $antrian->where('poli_id', $adminPoli->poli_id);
-        }
-        $antrian = $antrian->paginate();
+        $antrian = Antrian::where('poli_id', $adminPoli->poli_id)
+            ->where('status_antrian', 0)
+            ->orWhereHas('kunjungan', function ($query) {
+                return $query->where('status_kunjungan', 0);
+            })
+            ->orderBy('nomor_antrian', 'ASC')
+            ->orderBy('status_antrian', 'ASC')
+            ->paginate();
 
         return view('admin.antrian.index', compact('antrian'));
     }

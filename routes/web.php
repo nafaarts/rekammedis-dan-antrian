@@ -42,11 +42,6 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard', compact('jumlahPoli', 'jumlahDokter', 'jumlahPasien', 'jumlahAdminPoli'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/buat-antrian', function () {
-    return view('antrian.buat-antrian');
-})->name('buat-antrian');
-Route::post('/buat-antrian', BuatAntrianController::class)->name('buat-antrian');
-
 Route::middleware('auth')->group(function () {
 
     Route::middleware('can:is_pasien')->group(function () {
@@ -91,7 +86,13 @@ Route::middleware('auth')->group(function () {
             'admin' => 'user'
         ]);
 
-        Route::delete('antrian/reset', [AntrianController::class, 'reset'])->name('antrian.reset');
+        // Route::delete('antrian/reset', [AntrianController::class, 'reset'])->name('antrian.reset');
+
+        // buat antrian
+        Route::get('/buat-antrian', function () {
+            return view('antrian.buat-antrian');
+        })->name('buat-antrian');
+        Route::post('/buat-antrian', BuatAntrianController::class)->name('buat-antrian');
     });
 
     Route::middleware('can:is_admin_and_poli')->group(function () {
@@ -103,11 +104,12 @@ Route::middleware('auth')->group(function () {
 
         Route::get('kunjungan/{kunjungan}/periksa', [PemeriksaanController::class, 'periksa'])->name('kunjungan.periksa');
         Route::post('kunjungan/{kunjungan}/periksa', [PemeriksaanController::class, 'storePeriksa'])->name('kunjungan.storePeriksa');
+    });
 
+    Route::middleware('can:is_admin_poli')->group(function () {
         Route::get('antrian', [AntrianController::class, 'index'])->name('antrian.index');
         Route::get('antrian/{antrian}/toggle', [AntrianController::class, 'togglePemanggilan'])->name('antrian.update');
     });
-
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

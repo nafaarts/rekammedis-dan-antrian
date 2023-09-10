@@ -96,20 +96,23 @@
             @endauth
             <ul class="nav flex-column gap-2">
                 @auth
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="{{ route('beranda') }}"><i class="fas fa-fw fa-home"></i>
-                            Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="{{ route('pendaftaran.bukti') }}"><i
-                                class="fas fa-fw fa-address-card"></i>
-                            Bukti
-                            Pendaftaran</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="{{ route('antrian-saya') }}"><i
-                                class="fas fa-fw fa-arrow-down-1-9"></i> Nomor Antrian</a>
-                    </li>
+                    @can('is_pasien')
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{{ route('beranda') }}"><i class="fas fa-fw fa-home"></i>
+                                Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{{ route('pendaftaran.bukti') }}"><i
+                                    class="fas fa-fw fa-address-card"></i>
+                                Bukti
+                                Pendaftaran</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{{ route('antrian-saya') }}">
+                                <i class="fas fa-fw fa-arrow-down-1-9"></i>
+                                Nomor Antrian</a>
+                        </li>
+                    @endcan
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="javascript:document.getElementById('form-logout').submit()">
                             <i class="fas fa-fw fa-sign-out"></i>

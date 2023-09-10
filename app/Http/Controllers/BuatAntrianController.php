@@ -38,7 +38,12 @@ class BuatAntrianController extends Controller
             return back()->with('error', $errorMessage);
         }
 
-        $antrian = Antrian::where('poli_id', $kunjungan->poli_id)->count();
+        $antrian = Antrian::where('poli_id', $kunjungan->poli_id)
+            ->where('status_antrian', 0)
+            ->orWhereHas('kunjungan', function ($query) {
+                return $query->where('status_kunjungan', 0);
+            })
+            ->count();
 
         // buat nomor antrian
         $nomorAntrian = str_pad($antrian + 1, 4, '0', STR_PAD_LEFT);

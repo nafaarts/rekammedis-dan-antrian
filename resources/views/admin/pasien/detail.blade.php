@@ -39,6 +39,16 @@
                             <td>{{ $pasien->user->nama }}</td>
                         </tr>
                         <tr>
+                            <th>Email Pasien</th>
+                            <td class="px-4">:</td>
+                            <td>{{ $pasien->user->email }}</td>
+                        </tr>
+                        <tr>
+                            <th>No Telpon Pasien</th>
+                            <td class="px-4">:</td>
+                            <td>{{ $pasien->user->no_telp }}</td>
+                        </tr>
+                        <tr>
                             <th>Nomor Pasien</th>
                             <td class="px-4">:</td>
                             <td>{{ $pasien->no_pasien }}</td>

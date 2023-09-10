@@ -66,14 +66,15 @@
             </a>
         </li>
 
-        <li class="nav-heading text-white">Antrian</li>
-
-        <li class="nav-item text-white">
-            <a href="{{ route('antrian.index') }}" @class(['nav-link', 'collapsed' => request()->is('antrian*')])>
-                <i class="fa-solid fa-arrow-down-1-9"></i>
-                <span>Antrian</span>
-            </a>
-        </li>
+        @can('is_admin_poli')
+            <li class="nav-heading text-white">Antrian</li>
+            <li class="nav-item text-white">
+                <a href="{{ route('antrian.index') }}" @class(['nav-link', 'collapsed' => request()->is('antrian*')])>
+                    <i class="fa-solid fa-arrow-down-1-9"></i>
+                    <span>Antrian</span>
+                </a>
+            </li>
+        @endcan
 
         <li class="nav-heading text-white">Aksi</li>
         {{-- <li class="nav-item text-white">
