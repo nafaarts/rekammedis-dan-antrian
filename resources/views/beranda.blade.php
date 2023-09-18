@@ -37,20 +37,13 @@
         <h6 class="mb-3">Syarat dan Ketentuan</h6>
         <ol style="font-size: 14px" class="p-0 ps-3 mb-0">
             <li class="mb-2">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt, fugiat aspernatur ratione
-                pariatur veniam, suscipit veritatis nisi eum, sunt deserunt consequuntur commodi modi?
+                Mohon melakukan registrasi minimal 2 (dua) jam sebelum kedatangan.
             </li>
             <li class="mb-2">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt, fugiat aspernatur ratione
-                pariatur veniam, suscipit veritatis nisi eum, sunt deserunt consequuntur commodi modi?
-            </li>
-            <li class="mb-2">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt, fugiat aspernatur ratione
-                pariatur veniam, suscipit veritatis nisi eum, sunt deserunt consequuntur commodi modi?
+                Registrasi pada hari berkunjung paling lambat jam 14.00
             </li>
             <li>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt, fugiat aspernatur ratione
-                pariatur veniam, suscipit veritatis nisi eum, sunt deserunt consequuntur commodi modi?
+                Jika terdapat kekeliruan silahkan hubungi petugas pada saat melakukan verifikasi di loket online.
             </li>
         </ol>
     </div>
