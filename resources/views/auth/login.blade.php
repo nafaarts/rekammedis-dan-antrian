@@ -38,6 +38,8 @@
             </label>
         </div>
 
+        {!! htmlFormSnippet() !!}
+
         <div class="d-flex align-items-center justify-content-between mt-4">
             @if (Route::has('password.request'))
                 <small>

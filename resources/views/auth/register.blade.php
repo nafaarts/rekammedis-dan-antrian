@@ -50,11 +50,14 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+        {!! htmlFormSnippet() !!}
+
         <div class="d-flex align-items-center justify-content-end mt-4">
             <x-primary-button class="ml-4">
                 Daftar <i class="fa-solid fa-arrow-right"></i>
             </x-primary-button>
         </div>
+
         <hr class="my-4">
         <small class="text-center text-muted">
             Sudah punya akun, <a href="{{ route('login') }}">Login</a>

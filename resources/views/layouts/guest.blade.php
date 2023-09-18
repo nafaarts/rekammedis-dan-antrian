@@ -37,6 +37,8 @@
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 
+    {!! ReCaptcha::htmlScriptTagJsApi() !!}
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- =======================================================
