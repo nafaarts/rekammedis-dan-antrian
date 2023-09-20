@@ -38,7 +38,11 @@
             </label>
         </div>
 
-        {!! htmlFormSnippet() !!}
+
+        <div class="mt-4">
+            <small class="text-muted mb-2 d-block">Silahkan checklist konfirmasi bukan robot dibawah ini.</small>
+            {!! htmlFormSnippet() !!}
+        </div>
 
         <div class="d-flex align-items-center justify-content-between mt-4">
             @if (Route::has('password.request'))
